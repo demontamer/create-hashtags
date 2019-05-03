@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container-fluid">
+ <div class="container">
+ <div class="container-fluid">
+ <legend class="border-bottom mb-4">Find the most common words</legend>
+ </div>
+
+<!--input_form.html--->
+<form method=post enctype="multipart/form-data">
+<table>
+    {{ form.hidden_tag() }}
+    {% for field in form %}
+    <tr>
+        <td>{% if field.widget.input_type != 'hidden' %} {{ field.label }} {% endif %}</td><td>{{ field }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p><input type=submit value=GO></form></p>
+{% endblock %} 

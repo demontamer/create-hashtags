@@ -1,0 +1,5 @@
+flask
+Flask-WTF
+WTForms==2.2.1
+nltk
+
