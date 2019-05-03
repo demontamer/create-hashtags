@@ -18,7 +18,7 @@ def show():
     files = json.loads(request.args.get('names') )
     for name in files:
         filename = os.path.join(app.config['UPLOAD_FOLDER'], name)
-        with open(filename) as f:
+        with open(filename,encoding="utf8", errors='ignore') as f:
             doc = f.read()
         words = to_words(doc)
         sentences_ = to_sentences(doc)
@@ -43,7 +43,7 @@ def to_words(doc):
     # filter out stop words
     from nltk.corpus import stopwords
     stop_words = set(stopwords.words('english'))
-    words = [w for w in words if not w in stop_words|{'nt','enough','promise','let','know','us'}]
+    words = [w for w in words if not w in stop_words|{'nt','get','enough','promise','let','know','us','like'}]
  
     return words
 
